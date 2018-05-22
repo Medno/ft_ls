@@ -1,0 +1,38 @@
+
+norminette
+alias
+nm ft_ls
+
+# Check symbolic link and -possibly- the ACL | Extended attributs
+./ft_ls -l /
+
+# ls don't have to inspect inside the link but only the link himself
+./ft_ls -l /tmp
+
+# But here he have to
+./ft_ls -l /tmp/
+
+# If ls in column try this with different sizes of screen
+./ft_ls -a
+
+./ft_ls -l /etc/paths.d
+./ft_ls -lR /dev/fd
+./ft_ls -lR  /private/var/folders
+
+./ft_ls -l *
+./ft_ls -l Makefile libft ft_ls
+
+mkdir /tmp/test_pchadeni
+cd /tmp/test_pchadeni
+touch s_t
+# ----------
+chmod 0000 s_t && /tmp/pchadeni/ft_ls -l
+
+# ---s--x--t
+chmod 7111 s_t && /tmp/pchadeni/ft_ls -l
+
+# ---S-----T
+chmod 7000 s_t && /tmp/pchadeni/ft_ls -l
+
+# Secured getpwname with the path.d folder
+./ft_ls -l /private/etc
